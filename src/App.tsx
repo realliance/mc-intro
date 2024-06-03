@@ -3,6 +3,8 @@ import { ServerBanner } from "./server";
 import { HiHeart, HiMiniWrench } from "react-icons/hi2";
 import { CopyToClipboard, Instruction, Link } from "./format";
 import { HiGlobe } from "react-icons/hi";
+import { MdWindow } from "react-icons/md";
+import { FaApple, FaLinux } from "react-icons/fa";
 
 function App() {
   return (
@@ -17,11 +19,36 @@ function App() {
 
       <h1 className="text-4xl font-bold">Get the Pack</h1>
       <div className="max-w-2xl">
+        <div className="my-2">
+          <Instruction step={1} title="Get Java 17">
+            <p className="my-3">
+              Minecraft 1.20.1 requires Java 17 to run. Use the platform specific instructions below:
+            </p>
+            <Tabs aria-label="Install Java" style="default" className="min-w-lg">
+              <Tabs.Item active icon={MdWindow} title="Windows">
+                Download <Link to="https://aka.ms/download-jdk/microsoft-jdk-17-windows-x64.msi">OpenJDK 17 from Microsoft.</Link>
+              </Tabs.Item>
+              <Tabs.Item icon={FaApple} title="Mac">
+                Consider using <Link to="https://brew.sh/">brew</Link> to install OpenJDK:
+                <p className="pl-3 my-2 font-mono">brew install openjdk@17</p>
+              </Tabs.Item>
+              <Tabs.Item icon={FaLinux} title="Linux">
+                <h2 className="text-lg">Ubuntu</h2>
+                <p className="pl-3 my-2 font-mono">sudo apt install openjdk-17-jdk</p>
+
+                <h2 className="text-lg">Arch Linux (<span>pacman</span>)</h2>
+                <p className="pl-3 my-2 font-mono">sudo pacman -S jdk17-openjdk</p>
+              </Tabs.Item>
+            </Tabs>
+          </Instruction>
+        </div>
+
+        <h1 className="text-2xl font-bold my-3">Choose your Launcher:</h1>
         <Tabs aria-label="Get the pack tabs" style="default" className="min-w-lg">
           <Tabs.Item active title="Prism Launcher (Recommended)" icon={HiHeart}>
             <div className="flex flex-col gap-4">
               <p>Prism Launcher is recommended to easily support managing your modpacks.</p>
-              <Instruction step={1} title="Install Prism Launcher">
+              <Instruction step={2} title="Install Prism Launcher">
                 <p>
                   Prism Launcher downloads can be found{" "}
                   <Link to="https://prismlauncher.org/download">
@@ -29,23 +56,23 @@ function App() {
                   </Link>
                 </p>
               </Instruction>
-              <Instruction step={2} title="Get the Modpack">
+              <Instruction step={3} title="Get the Modpack">
                 <p>
                   Get the latest version from <Link to="https://modrinth.com/modpack/realliance-community/version/latest">Modrinth,</Link>{' '}
                   either by downloading the <span className="font-mono">mrpack</span> file or copying the download link (which would be in the format of <span className="font-mono">https://cdn.modrinth.com/data/znT0Z7tA/versions/...</span>)
                 </p>
               </Instruction>
-              <Instruction step={3} title="Add it to Prism Launcher">
+              <Instruction step={4} title="Add it to Prism Launcher">
                 <p>
                   In Prism Launcher, click "Add Instance" in the top right of the interface, and under the tab "Import", ether browse to the path for the local <span className="font-mono">mrpack</span> file or paste your web link to the Modrinth download url.
                 </p>
               </Instruction>
-              <Instruction step={4} title="Adjust your Prism Launcher Settings">
+              <Instruction step={5} title="Adjust your Prism Launcher Settings">
                 <p>
                   In Prism Launcher, click "Settings" in the top of the interface. Under "Java", ensure Prism Launcher is using a good Java path for your system. Under the Memory section of this page, it is recommened to set it to at least 6 GB (6144 MiB). Always set your Minimum and Maximum memory allocation to the same number to improve performance.
                 </p>
               </Instruction>
-              <Instruction step={5} title="(Optional) Add JVM Arguments">
+              <Instruction step={6} title="(Optional) Add JVM Arguments">
                 <p>For even better performance, we recommend adding the following arguments to the "JVM Arguments" section of the Java settings page:</p>
                 <CopyToClipboard block="-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1" />
               </Instruction>
