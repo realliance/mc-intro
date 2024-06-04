@@ -56,23 +56,17 @@ function App() {
                   </Link>
                 </p>
               </Instruction>
-              <Instruction step={3} title="Get the Modpack">
+              <Instruction step={3} title="Add the Pack to Prism Launcher">
                 <p>
-                  Get the latest version from <Link to="https://modrinth.com/modpack/realliance-community/version/latest">Modrinth,</Link>{' '}
-                  either by downloading the <span className="font-mono">mrpack</span> file or copying the download link (which would be in the format of <span className="font-mono">https://cdn.modrinth.com/data/znT0Z7tA/versions/...</span>)
+                  In Prism Launcher, click "Add Instance" in the top left of the interface, and under the tab "Modrinth", search for "Realliance Community". Click OK to add it to your Prism Launcher.
                 </p>
               </Instruction>
-              <Instruction step={4} title="Add it to Prism Launcher">
-                <p>
-                  In Prism Launcher, click "Add Instance" in the top right of the interface, and under the tab "Import", ether browse to the path for the local <span className="font-mono">mrpack</span> file or paste your web link to the Modrinth download url.
-                </p>
-              </Instruction>
-              <Instruction step={5} title="Adjust your Prism Launcher Settings">
+              <Instruction step={4} title="Adjust your Prism Launcher Settings">
                 <p>
                   In Prism Launcher, click "Settings" in the top of the interface. Under "Java", ensure Prism Launcher is using a good Java path for your system. Under the Memory section of this page, it is recommened to set it to at least 6 GB (6144 MiB). Always set your Minimum and Maximum memory allocation to the same number to improve performance.
                 </p>
               </Instruction>
-              <Instruction step={6} title="(Optional) Add JVM Arguments">
+              <Instruction step={5} title="(Optional) Add JVM Arguments">
                 <p>For even better performance, we recommend adding the following arguments to the "JVM Arguments" section of the Java settings page:</p>
                 <CopyToClipboard block="-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1" />
               </Instruction>
