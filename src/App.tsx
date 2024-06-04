@@ -60,6 +60,7 @@ function App() {
                 <p>
                   In Prism Launcher, click "Add Instance" in the top left of the interface, and under the tab "Modrinth", search for "Realliance Community". Click OK to add it to your Prism Launcher.
                 </p>
+                <p className="mt-4">It's also possible to add the pack via the "Import" tab by importing the <span className="font-mono">mrpack</span> from our <Link to="https://modrinth.com/modpack/realliance-community/version/latest">Modrinth Page.</Link></p>
               </Instruction>
               <Instruction step={4} title="Adjust your Prism Launcher Settings">
                 <p>
